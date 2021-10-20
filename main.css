@@ -1,0 +1,37 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    /* noi dung nam chinh giua */
+    margin: 0 auto; 
+    /* khoang cach theo thu tu tren duoi:0 trai phai: 10px */
+    padding: 0 10px;    
+}
+
+/* setup variables */
+:root {
+    --green: #54B192;
+    --green-light: #A4CEC0;
+    --gray: #3F3D56;
+
+}
