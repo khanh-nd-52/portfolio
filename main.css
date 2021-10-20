@@ -28,10 +28,155 @@ img {
     padding: 0 10px;    
 }
 
+button {
+    text-align: center;
+    color: white;
+    background-color: var(--gray);
+    padding: .8rem 2.5rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--smooth);
+}
+
+button:hover {
+    background-color: var(--green);
+    transition: var(--smooth);
+}
+
 /* setup variables */
 :root {
     --green: #54B192;
     --green-light: #A4CEC0;
     --gray: #3F3D56;
+    --smooth: all .3s ease-in;
 
+}
+
+/* === header === */
+header {
+    /* meunu nam tren logo */
+    position: absolute; 
+    width: 100%;
+}
+
+.navbar {
+    /* tat cả elements nam tren 1 hang */
+    display: flex;
+    /* tu dong chia ra khoang cach giua cac elements tren 1 hang */
+    justify-content: space-between;
+    /* sap xep vi tri elements vao vi tri chinh giua theo chieu doc */
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* logo  */
+.navbar__logo img {
+    width: 57px;
+    height: 57px;
+    /* giup hinh luc nao cung fit trong khung hinh tao ra  */
+    object-fit: cover;
+}
+
+/* menu  */
+.navbar__links {
+    /* menu luc nao cung nam tren vi tri co dinh  */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background-color: var(--gray);
+    /* muon menu se nam tren tat ca elms khac  */
+    z-index: 5;
+    /* neu element nao di chuyen thi style do muot-smooth  */
+    transition: var(--smooth);
+    /* day menu ve ben trai truc x => -100%  */
+    transform: translateX(-100%);
+    /* do mo  */
+    opacity: 0;
+}
+
+.navbar__links.navbar__open {
+    transform: translateX(0);
+    opacity: 1;
+    transition: var(--smooth);
+}
+
+.navbar__link {
+    list-style: none;
+    margin: 55px;
+}
+
+.navbar__link a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    transition: var(--smooth);
+}
+
+.navbar__link a:hover {
+    color: var(--green);
+    transition: var(--smooth);
+}
+
+.navbar__btn {
+    /* 1rem = 16px  */
+    font-size: 1rem;
+    background-color: var(--green);
+    margin-left: 45px;
+}
+
+/* menu button  */
+.navbar__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: var(--smooth);
+    z-index: 6;
+}
+
+.navbar__icon {
+    width: 45px;
+    height: 6px;
+    background-color: var(--gray);
+    border-radius: 5px;
+    transition: var(--smooth);
+    position: relative;
+}
+
+.navbar__icon::before,
+.navbar__icon::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 6px;
+    background-color: var(--gray);
+    border-radius: 5px;
+    transition: var(--smooth);
+}
+
+.navbar__icon::before {
+    transform: translateY(-12px);
+}
+
+.navbar__icon::after {
+    transform: translateY(12px);
+}
+
+/* button animation */
+.open .navbar__icon {
+    transform: translateX(-50px);
+    background: transparent;   
+}
+
+.open .navbar__icon::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.open .navbar__icon::after {
+    transform: rotate(-45deg) translate(35px, 35px);
 }
